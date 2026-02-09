@@ -156,6 +156,13 @@ loadNFTImage(id)
 }, [receipt, isSuccess])
 
 
+useEffect(() => {
+  if (nftImage) {
+    setShowModal(true)
+  }
+}, [nftImage])
+
+
 
   useWatchContractEvent({
     address: CONTRACT_ADDRESS,
@@ -205,10 +212,10 @@ const loadNFTImage = async (tokenId: string) => {
     }
 
     setNftImage(img);
-    setShowModal(true);
+    
   } catch (error) {
     console.error(error);
-    setShowModal(true);
+    
   }
 };
 
